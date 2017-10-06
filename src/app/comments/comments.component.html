@@ -1,0 +1,13 @@
+<div *ngFor="let comment of comments; let first = first" style="margin: 10px;">
+	<div *ngIf="!first">
+		<div *ngFor="let commentChildren of comment.data.children" style="padding: 10px;">
+			<div *ngIf="commentChildren.kind !== 'more'">
+				{{commentChildren.data.body}} - {{commentChildren.data.author}}
+				<app-replies [replies]="commentChildren.data.replies"></app-replies>
+			</div>
+			<div *ngIf="commentChildren.kind === 'more'">
+				more
+			</div>
+		</div>
+	</div>
+</div>

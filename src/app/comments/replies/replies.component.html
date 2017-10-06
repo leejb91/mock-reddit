@@ -1,0 +1,9 @@
+<div *ngIf="replies">
+	<div style="padding: 10px;" *ngFor="let reply of replies.data.children">
+		<div *ngIf="reply.kind === 'more'">more</div>
+		<div *ngIf="reply.kind !== 'more'">
+			{{reply.data.body}} - {{reply.data.author}}
+			<app-replies [replies]="reply.data.replies"></app-replies>
+		</div>
+	</div>
+</div>

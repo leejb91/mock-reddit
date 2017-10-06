@@ -1,0 +1,13 @@
+<h2>Instant Regret</h2>
+
+<div class="pointer" *ngFor="let post of list" (click)="goToComments(post.data.id)" style="margin: 10px;">
+	<a>
+		<img style="width: 70px" *ngIf="post.data.thumbnail !== 'self'" src={{post.data.thumbnail}} alt="">
+	</a>
+	{{post.data.title}}
+</div>
+
+<div style="padding: 10px;">
+	<button *ngIf="showPreviousButton" class="btn btn-default" (click)="navigate('before')">Previous</button>
+	<button class="btn btn-default" (click)="navigate('after')">Next</button>
+</div>
