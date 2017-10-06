@@ -49,12 +49,15 @@ export class ListComponent implements OnInit {
 	}
 
 	checkPage() {
+		// use this.queryParams.count to figure out the page
 		if (this.queryParams.count % 10 === 0 && !!this.queryParams.after) {
 			this.page = (this.queryParams.count / 10) + 1;
 		}
 		if (this.queryParams.count % 10 === 1 && !!this.queryParams.before) {
 			this.page = (this.queryParams.count - 1) / 10;
 		}
+
+		// use page number to determine whether previous or next is needed
 		if (this.page <= 1) {
 			this.showPreviousButton = false;
 		} else {
